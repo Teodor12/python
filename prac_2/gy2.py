@@ -1,3 +1,7 @@
+from operator import le
+import re
+
+
 def figyelmeztetes():
     print("VIGYAZZ!")
 
@@ -33,4 +37,21 @@ def tunderek(tunder_lista):
 def csapdak(folyoso, tavolsag):
     return list(range(150, folyoso * 100 + 1, tavolsag))
 
-print(csapdak(10,200))
+def templomtanc(targyak: list):
+    if targyak is None:
+        return []
+    eredmeny = []
+    for targy in targyak:
+        if targy.startswith("szent"):
+            eredmeny.append(targy.strip())
+            continue
+        if len(targy < 5):
+            continue
+        uj_targy = ""
+        maganhangzok = "aeiou"
+        for c in targy:
+            if c not in maganhangzok:
+                uj_targy+=c
+        eredmeny.append(uj_targy)
+    return sorted(eredmeny)
+
